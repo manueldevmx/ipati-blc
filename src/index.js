@@ -1,14 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import Card from './Cads/Cards';
+import Cards from './Cads/Cards';
+
+
 
 
 
 ReactDOM.render(
  
-<Card/>,
+
+  <Cards />,
   
+
+
   document.getElementById('root')
 );
 

@@ -7,28 +7,22 @@ const Card = props => {
 
     const address = 'DscLYSmWzofxRzoMdPvSV8nADY9L4LegdAc';
 
-     let saldo;
-
     const peticion = fetch (`https://explorer.dcrdata.org/api/address/${address}/totals`);
 
-    
+    peticion
+        .then( resp => resp.json() )
+        .then( data => {
+            console.log(data)
 
-    peticion.then (resp => {
-        resp.json().then( data => {
-            console.log(data.dcr_spent)
 
-            saldo = data.dcr_spent + data.dcr_unspent;
         })
-    })
-    
-    .catch(console.warn);
-
-    console.log(saldo);
-
+ 
     return(
 
-       
+
         <div className="card text-center">
+              
+
             <div className="overflow">
                 <img src={props.imgsrc} alt="Image1" className="card-img-top" />
             </div>
@@ -41,17 +35,18 @@ const Card = props => {
                 </p>
 
                 <>
-                <small>Meta</small>
-                <Progress done="30"/>
+                <small>Monto Meta</small>
+                <Progress done="80"/>
                 </>
 
                 <>
-               
+                <small>Progreso de fondeo</small>
                 <Progress done="30"/>
                 </>
 
 
-                <a href="#" className='btn btn-outline-success'>Saber mas</a>
+                < a href="#" className='btn btn-outline-success'>Saber mas</a>
+                
             </div>
         </div> 
     );
